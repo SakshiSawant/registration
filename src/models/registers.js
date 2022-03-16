@@ -15,7 +15,7 @@ const employeeSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    gender: {
+    accounttype: {
         type: String,
         required: true
     },

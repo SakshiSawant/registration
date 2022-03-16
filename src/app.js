@@ -43,14 +43,14 @@ app.post("/register", async (req, res) => {
                 firstname: req.body.firstname,
                 lastname: req.body.lastname,
                 email: req.body.email,
-                gender: req.body.gender,
+                accounttype: req.body.accounttype,
                 phone: req.body.phone,
                 age: req.body.age,
                 password: req.body.password,
                 confirmpassword: req.body.confirmpassword
             })            
             const registered = await registerEmployee.save();
-            res.status(201).render("index");
+            res.status(201).render("home");
         } else {
             res.send("passwords are not matching");
         }
@@ -67,7 +67,7 @@ app.post("/login", async (req, res) => {
         const isMatch = await bcrypt.compare(password,useremail.password);
 
         if (isMatch) {
-            res.status(201).render("index");
+            res.status(201).render("home");
         }
         else {
             res.send(400).render("login");
